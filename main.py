@@ -16,13 +16,13 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
+app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # My EMAIL
-MY_EMAIL = os.environ["my_email"]
-MY_PASS = os.environ["my_pass"]
+MY_EMAIL = os.environ.get("my_email")
+MY_PASS = os.environ.get("my_pass")
 
 # INITIALISE GRAVATAR
 gravatar = Gravatar(app,
