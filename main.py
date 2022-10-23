@@ -1,5 +1,6 @@
+import os
+
 from flask import Flask, render_template, redirect, url_for, flash, request, abort
-from os import environ
 import smtplib
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -15,13 +16,13 @@ from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
 from flask_gravatar import Gravatar
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ["SECRET_KEY"]
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # My EMAIL
-MY_EMAIL = environ['my_email']
-MY_PASS = environ['my_pass']
+MY_EMAIL = os.environ["my_email"]
+MY_PASS = os.environ["my_pass"]
 
 # INITIALISE GRAVATAR
 gravatar = Gravatar(app,
