@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, flash, request, abort
+from os import environ
 import smtplib
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
@@ -19,8 +20,8 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 
 # My EMAIL
-MY_EMAIL = 'munsat12345@gmail.com'
-MY_PASS = 'uwpasleketfxfivn'
+MY_EMAIL = environ['my_email']
+MY_PASS = environ['my_pass']
 
 # INITIALISE GRAVATAR
 gravatar = Gravatar(app,
